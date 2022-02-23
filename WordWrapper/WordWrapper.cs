@@ -12,13 +12,22 @@ public class WordWrapper
         {
             String[] words = text.Split(new char[] { ' ' });
             StringBuilder sb = new StringBuilder();
+            
             for (int i = 0; i < words.Count(); i++)
             {
-                sb.Append(words[i]);
-                if (i < words.Count() - 1)
+                if(sb.Length + words[i].Length > maxLineLength)
                 {
                     sb.Append("\n");
+                    sb.Append(words[i]);
+                } else
+                {
+                    sb.Append(words[i]);
+                    if (i < words.Count() - 1 && (sb.Length + (words[i].Length+1) < maxLineLength))
+                    {
+                        sb.Append(" ");
+                    }
                 }
+                
             }
             Console.WriteLine(sb);
             return sb.ToString();
