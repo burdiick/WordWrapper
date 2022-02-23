@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 
 namespace WordWrapperTests
 {
@@ -8,35 +9,45 @@ namespace WordWrapperTests
         public void Setup()
         {
         }
+        private void AssertWrapper(String assert, String inputText, int inputLength)
+        {
+            Assert.AreEqual(assert, WordWrapper.wrap(inputText, inputLength));
+        }
 
         [Test]
         public void givenNull_returnsEmptyString()
         {
-            Assert.AreEqual("", WordWrapper.wrap(null, 1));
+            AssertWrapper("", null, 1);
         }
 
         [Test]
         public void givenBlank_returnEmptyString()
         {
-            Assert.AreEqual("", WordWrapper.wrap("", 1));
+            AssertWrapper("", "", 1);
         }
 
         [Test]
         public void givenShortWord_returnShortWord()
         {
-            Assert.AreEqual("word", WordWrapper.wrap("word", 10));
+            AssertWrapper("word", "word", 10);
         }
 
         [Test]
         public void givenTwoWords_returnTwoLines()
         {
-            Assert.AreEqual("Two\nwords", WordWrapper.wrap("Two words", 5));
+            AssertWrapper("Two\nwords", "Two words" , 5);
         }
 
         [Test]
         public void givenTwoWords_returnOneLine()
         {
-            Assert.AreEqual("Two words", WordWrapper.wrap("Two words", 10));
+            AssertWrapper("Two words", "Two words", 10);
+        }
+
+        [Test]
+        public void givenThreeWords_returnTwoLines()
+        {
+            AssertWrapper("Three word\nsentence", "Three word sentence", 10);
         }
     }
 }

@@ -19,10 +19,11 @@ public class WordWrapper
                 {
                     sb.Append("\n");
                     sb.Append(words[i]);
+                    
                 } else
                 {
                     sb.Append(words[i]);
-                    if (i < words.Count() - 1 && (sb.Length + (words[i].Length+1) < maxLineLength))
+                    if (i < words.Count() - 1 && (sb.Length + (words[i+1].Length) < maxLineLength))
                     {
                         sb.Append(" ");
                     }
