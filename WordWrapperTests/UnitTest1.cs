@@ -26,5 +26,11 @@ namespace WordWrapperTests
         {
             Assert.AreEqual("word", WordWrapper.wrap("word", 1));
         }
+
+        [Test]
+        public void givenTwoWords_returnTwoLines()
+        {
+            Assert.AreEqual("Two\nwords", WordWrapper.wrap("Two words", 5));
+        }
     }
 }
