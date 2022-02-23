@@ -10,7 +10,7 @@ public class WordWrapper
         }
         else
         {
-            String[] words = text.Split(new char[] { ' ' });
+            String[] words = text.Trim().Split(new char[] { ' ' });
             StringBuilder sb = new StringBuilder();
             var nextLine = "";
 

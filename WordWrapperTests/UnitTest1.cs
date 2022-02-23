@@ -62,5 +62,11 @@ namespace WordWrapperTests
         {
             AssertWrapper("Polymo-\nrphism", "Polymorphism", 10);
         }
+
+        [Test]
+        public void givenWhiteSpaces_returnTrimmed()
+        {
+            AssertWrapper("No white space before or after.", "            No white space before or after.             ", 40);
+        }
     }
 }
