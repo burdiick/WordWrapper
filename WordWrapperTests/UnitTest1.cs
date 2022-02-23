@@ -49,5 +49,12 @@ namespace WordWrapperTests
         {
             AssertWrapper("Three word\nsentence", "Three word sentence", 10);
         }
+
+        [Test]
+        public void givenLotsOfWords_returnManyLines()
+        {
+            AssertWrapper("The quick brown fox\njumped over the lazy dog\nand the dog was none the\nwiser",
+                "The quick brown fox jumped over the lazy dog and the dog was none the wiser", 25);
+        }
     }
 }
