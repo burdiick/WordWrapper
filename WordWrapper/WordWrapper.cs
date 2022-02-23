@@ -25,9 +25,20 @@ public class WordWrapper
                     nextLine += words[i];
                 } else
                 {
-                    sb.Append(nextLine + "\n");
-                    nextLine = words[i];
+                    if (words[i].Length > maxLineLength)
+                    {
+                        String firstHalf = words[i].Substring(0, words[i].Length / 2);
+                        String secondHalf = words[i].Substring(firstHalf.Length, words[i].Length - firstHalf.Length);
 
+                        nextLine += (firstHalf + "-");
+                        sb.Append(nextLine + "\n");
+                        nextLine = secondHalf;
+                    }
+                    else
+                    {
+                        sb.Append(nextLine + "\n");
+                        nextLine = words[i];
+                    }
                 }
                 if (i == words.Count() - 1)
                 {

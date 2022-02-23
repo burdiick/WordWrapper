@@ -56,5 +56,11 @@ namespace WordWrapperTests
             AssertWrapper("The quick brown fox\njumped over the lazy dog\nand the dog was none the\nwiser",
                 "The quick brown fox jumped over the lazy dog and the dog was none the wiser", 25);
         }
+
+        [Test]
+        public void givenLongWord_SplitWord()
+        {
+            AssertWrapper("Polymo-\nrphism", "Polymorphism", 10);
+        }
     }
 }
