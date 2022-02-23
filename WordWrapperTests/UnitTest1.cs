@@ -10,9 +10,9 @@ namespace WordWrapperTests
         }
 
         [Test]
-        public void Test1()
+        public void givenNull_returnsEmptyString()
         {
-            Assert.Pass();
+            Assert.AreEqual("", WordWrapper.wrap(null, 1));
         }
     }
 }
