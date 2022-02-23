@@ -35,7 +35,7 @@ namespace WordWrapperTests
         [Test]
         public void givenTwoWords_returnTwoLines()
         {
-            AssertWrapper("Two\nwords", "Two words" , 5);
+            AssertWrapper("Two\nwords", "Two words", 5);
         }
 
         [Test]
@@ -67,6 +67,14 @@ namespace WordWrapperTests
         public void givenWhiteSpaces_returnTrimmed()
         {
             AssertWrapper("No white space before or after.", "            No white space before or after.             ", 40);
+        }
+
+        [Test]
+        public void givenAllThings_returnCorrectWraps()
+        {
+            AssertWrapper("This is a test to see if I am\nmissing any side cases.\nThrowing in some long words\nlike AppendInterpola-\ntedStringHandler and also some\nwhite space at the end...", 
+                "This is a test to see if I am missing any side cases. Throwing in some long words like AppendInterpolatedStringHandler and also some white space at the end...      ",
+                30);
         }
     }
 }

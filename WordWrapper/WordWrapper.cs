@@ -27,6 +27,11 @@ public class WordWrapper
                 {
                     if (words[i].Length > maxLineLength)
                     {
+                        if (nextLine.Length > 0)
+                        {
+                            nextLine += " ";
+                        }
+
                         String firstHalf = words[i].Substring(0, words[i].Length / 2);
                         String secondHalf = words[i].Substring(firstHalf.Length, words[i].Length - firstHalf.Length);
 
