@@ -1,7 +1,14 @@
-﻿    public class WordWrapper
+﻿public class WordWrapper
+{
+    public static String wrap(String text, int maxLineLength)
     {
-        public static String wrap(String text, int maxLineLength)
+        if (text != null && text.Length > 0)
+        {
+            return text;
+        }
+        else
         {
             return "";
         }
     }
+}
